@@ -1,0 +1,99 @@
+
+::root{
+    --color-primario: #b30000;
+    --color-secundario: #000000;
+    --color-terciario: #ffffff;
+    --color-cuartario: #ffffff;
+    --color-quinto: #808080;
+    --color-sexto: #d3d3d3;
+    --color-texto: #333333;
+    --fuente-principal: 'Arial', sans-serif;
+    --fuente-secundaria: 'Verdana', sans-serif;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-cuartario);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    background-color: var(--color-primario);
+    color: var(--color-terciario);
+    padding: 10px 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;;
+}
+
+nav ul {
+    display: flex;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+nav a{
+    color: var(--color-terciario);
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: var(--color-secundario);
+    color: var(--color-terciario);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+button:hover {
+    background-color: var(--color-quinto);
+}
+
+button a {
+    color: var(--color-terciario);
+    text-decoration: none;
+}
+
+button a:hover {
+    text-decoration: underline;
+}
+
+.ingresar {
+    margin-top: 10px;
+}
+.ingresar button {
+    margin-left: 10px;
+}
+.ingresar button a {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Estilos adicionales pueden ser añadidos aquí */
+/* para otros elementos de la página */
+/* como footer, secciones, formularios, etc. */
+/* Asegúrate de mantener la coherencia */
+/* con la paleta de colores y las fuentes */
+/* definidas en las variables CSS. */
+/* Ejemplo para footer */
+footer {
+    background-color: var(--color-sexto);
+    color: var(--color-texto);
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+    bottom: 0;
+}
