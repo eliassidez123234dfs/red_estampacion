@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito RED</title>
+    <link rel="stylesheet" href="css/carrito.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <h1 class="logo">RED</h1>
+        <button class="user-btn">Juan</button>
+    </header>
+
+    <main class="contenedor">
+
+        <h2 class="titulo">Carrito de compras</h2>
+
+        <p id="msg-vacio" class="mensaje-vacio" style="display:none;">No hay productos en el carrito</p>
+
+        <!-- LISTA DE PRODUCTOS -->
+        <div class="carrito-lista" id="carrito-lista">
+
+            <!-- PRODUCTO 1 -->
+            <div class="item" data-id="1">
+                <img src="https://via.placeholder.com/100" alt="producto">
+
+                <div class="item-info">
+                    <h3>Camiseta Oversize RED</h3>
+                    <p>Talla: L — Color: Negro</p>
+
+                    <div class="quantity-box">
+                        <button class="qty-btn minus">-</button>
+                        <input class="qty" type="number" value="1" min="1">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                </div>
+
+                <div class="price" data-price="95000">
+                    $95.000
+                    <span class="subtotal">Subtotal: $95.000</span>
+                </div>
+
+                <button class="remove-btn">✖</button>
+            </div>
+
+            <!-- PRODUCTO 2 -->
+            <div class="item" data-id="2">
+                <img src="https://via.placeholder.com/100" alt="producto">
+
+                <div class="item-info">
+                    <h3>Chaqueta Deportiva RED</h3>
+                    <p>Talla: XL — Color: Rojo</p>
+
+                    <div class="quantity-box">
+                        <button class="qty-btn minus">-</button>
+                        <input class="qty" type="number" value="2" min="1">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                </div>
+
+                <div class="price" data-price="150000">
+                    $150.000
+                    <span class="subtotal">Subtotal: $300.000</span>
+                </div>
+
+                <button class="remove-btn">✖</button>
+            </div>
+
+        </div>
+
+        <!-- BOTÓN BORRAR TODO -->
+        <button id="btn-borrar-todo" class="btn-borrar-todo">Borrar todos los productos</button>
+
+        <!-- BOTÓN REGRESAR -->
+        <button class="btn-regresar" onclick="volverAlEditor()">⬅ Regresar al editor de ropa</button>
+
+    </main>
+
+    <script src="javascript/backend.js"></script>
+</body>
+</html>
