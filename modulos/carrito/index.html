@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -7,132 +8,136 @@
 </head>
 <body>
 
-    <!-- Header simple -->
+    <!-- Header -->
     <header class="header">
         <div class="logo">RED</div>
 
         <div class="search-container">
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="Buscar productos...">
             <button class="search-btn">🔍</button>
         </div>
 
         <div class="user-section">
             <div class="cart-icon">🛒<span class="badge">3</span></div>
             <div class="auth-links">
-                Welcome! <a href="#">Sign in</a> | <a href="#">Register</a>
+                ¡Bienvenido! <a href="#">Iniciar sesión</a> | <a href="#">Registrarse</a>
             </div>
         </div>
     </header>
 
     <main class="container">
 
-        <h1>Shopping Cart</h1>
+        <h1>Tu Carrito</h1>
 
         <div class="cart-wrapper">
 
             <!-- Productos -->
             <div class="cart-items">
 
-                <!-- Item 1 -->
                 <div class="item">
                     <img src="https://via.placeholder.com/90" alt="product">
                     <div class="item-info">
-                        <h3>Some name of item goes here nice</h3>
-                        <p>Size: XL, Color: Blue, Brand: Gucci</p>
+                        <h3>Camisa Roja Casual</h3>
+                        <p>Talla: M, Color: Rojo, Marca: Zara</p>
                     </div>
 
                     <div class="quantity">
-                        <select>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                        </select>
+                        <input type="number" min="1" value="1">
                     </div>
 
-                    <div class="price">$1156.00<br><span>$315.20 each</span></div>
+                    <div class="price">$120.00<br><span>$120 c/u</span></div>
 
-                    <button class="favorite">🤍</button>
-                    <button class="remove-btn">Remove</button>
+                    <button class="favorite">❤️</button>
+                    <button class="remove-btn">Eliminar</button>
                 </div>
 
-                <!-- Item 2 -->
                 <div class="item">
                     <img src="https://via.placeholder.com/90" alt="product">
                     <div class="item-info">
-                        <h3>Product name goes here nice</h3>
-                        <p>Size: XL, Color: Blue, Brand: Gucci</p>
+                        <h3>Pantalón Negro Elegante</h3>
+                        <p>Talla: 32, Color: Negro, Marca: Levi’s</p>
                     </div>
+
                     <div class="quantity">
-                        <select>
-                            <option>1</option>
-                            <option>2</option>
-                        </select>
+                        <input type="number" min="1" value="1">
                     </div>
 
-                    <div class="price">$149.97<br><span>$75.00 each</span></div>
+                    <div class="price">$89.99<br><span>$89.99 c/u</span></div>
 
-                    <button class="favorite">🤍</button>
-                    <button class="remove-btn">Remove</button>
+                    <button class="favorite">❤️</button>
+                    <button class="remove-btn">Eliminar</button>
                 </div>
 
-                <!-- Item 3 -->
                 <div class="item">
                     <img src="https://via.placeholder.com/90" alt="product">
                     <div class="item-info">
-                        <h3>Another name of some product goes just here</h3>
-                        <p>Size: XL, Color: Blue, Brand: Tissot</p>
+                        <h3>Reloj Deportivo</h3>
+                        <p>Color: Negro, Marca: Casio</p>
                     </div>
 
                     <div class="quantity">
-                        <select>
-                            <option>1</option>
-                            <option>2</option>
-                        </select>
+                        <input type="number" min="1" value="1">
                     </div>
 
-                    <div class="price">$98.00<br><span>$58.00 each</span></div>
+                    <div class="price">$150.00<br><span>$150 c/u</span></div>
 
-                    <button class="favorite">🤍</button>
-                    <button class="remove-btn">Remove</button>
+                    <button class="favorite">❤️</button>
+                    <button class="remove-btn">Eliminar</button>
                 </div>
 
                 <div class="cart-actions">
-                    <button class="continue">← Continue shopping</button>
+                    <button class="continue">← Seguir comprando</button>
                 </div>
-            </div>
-
-            <!-- Resumen -->
-            <div class="summary">
-
-                <!-- Totales -->
-                <div class="totals-box">
-                    <div class="line">
-                        <span>Total price:</span>
-                        <span>USD 568</span>
-                    </div>
-                    <div class="line">
-                        <span>Discount:</span>
-                        <span>USD 658</span>
-                    </div>
-
-                    <div class="total">
-                        <span>Total:</span>
-                        <span class="total-value">$1,650</span>
-                    </div>
-
-                    <div class="payment-icons">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="">
-                    </div>
-
-                    <button class="purchase-btn">Make Purchase →</button>
-                </div>
-
             </div>
         </div>
+
+        <!-- Sección de pago -->
+        <div class="summary">
+            <div class="totals-box">
+                <div class="line">
+                    <span>Subtotal:</span>
+                    <span>USD 359.99</span>
+                </div>
+                <div class="line">
+                    <span>Descuento:</span>
+                    <span>USD 20.00</span>
+                </div>
+
+                <div class="total">
+                    <span>Total:</span>
+                    <span class="total-value">$339.99</span>
+                </div>
+
+                <div class="payment-icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="">
+                </div>
+
+                <button class="purchase-btn">Pagar Ahora →</button>
+            </div>
+        </div>
+
     </main>
+
+    <script>
+        // Eliminar producto
+        const removeButtons = document.querySelectorAll(".remove-btn");
+        removeButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                btn.closest(".item").remove();
+            });
+        });
+
+        // Validar cantidad
+        const quantities = document.querySelectorAll(".quantity input");
+        quantities.forEach(input => {
+            input.addEventListener("input", () => {
+                if (input.value < 1) input.value = 1;
+            });
+        });
+    </script>
 
 </body>
 </html>
