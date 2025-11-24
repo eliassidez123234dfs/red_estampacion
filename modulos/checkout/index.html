@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout — RED</title>
+  <link rel="stylesheet" href="css/checkout.css" />
+</head>
+<body>
+
+  <!-- HEADER (misma que carrito de usuario) -->
+  <header class="header">
+    <h1 class="logo">RED</h1>
+    <nav class="header-center">
+      <button class="back-btn" onclick="window.location.href='index.html'">← Regresar</button>
+    </nav>
+    <div class="header-right">
+      <button class="user-btn">Juan</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <h2 class="page-title">Checkout</h2>
+
+    <div class="layout">
+
+      <!-- IZQUIERDA: Formulario de envío -->
+      <section class="panel shipping-panel">
+        <h3>Datos de envío</h3>
+
+        <form id="shipping-form" novalidate>
+          <label>Nombre completo <input type="text" id="ship-name" required></label>
+          <label>Correo electrónico <input type="email" id="ship-email" required></label>
+          <label>Teléfono <input type="tel" id="ship-phone" required></label>
+          <label>Dirección <input type="text" id="ship-address" required></label>
+          <label>Ciudad <input type="text" id="ship-city" required></label>
+          <label>Código postal <input type="text" id="ship-postal" required></label>
+
+          <p class="note">Todos los campos son obligatorios para continuar al pago (RN-059).</p>
+        </form>
+      </section>
+
+      <!-- DERECHA: Resumen y pago (Wompi único) -->
+      <aside class="panel checkout-panel">
+        <h3>Resumen del pedido</h3>
+
+        <!-- Lista de productos (se debe poblar desde el carrito real) -->
+        <div id="order-summary" class="order-summary">
+          <!-- Para demo: dos productos fijos (sustituir por tu carrito dinámico) -->
+          <div class="summary-item">
+            <div class="left">
+              <img src="https://via.placeholder.com/72" alt="Producto A">
+              <div class="meta">
+                <div class="name">Camiseta Oversize RED</div>
+                <div class="meta-small">Talla: L — Color: Negro</div>
+              </div>
+            </div>
+            <div class="right">
+              <div class="qty">x1</div>
+              <div class="price">$95.000</div>
+            </div>
+          </div>
+
+          <div class="summary-item">
+            <div class="left">
+              <img src="https://via.placeholder.com/72" alt="Producto B">
+              <div class="meta">
+                <div class="name">Chaqueta Deportiva RED</div>
+                <div class="meta-small">Talla: XL — Color: Rojo</div>
+              </div>
+            </div>
+            <div class="right">
+              <div class="qty">x2</div>
+              <div class="price">$150.000</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-totals">
+          <div class="line"><span>Subtotal (demo):</span><span id="subtotal-client">$395.000</span></div>
+          <div class="line"><span>Total (calculado por backend):</span><span id="total-server">Calculando...</span></div>
+        </div>
+
+        <hr>
+
+        <h4>Método de pago</h4>
+        <div class="payment-method">
+          <!-- RN-061: mostrar solo Wompi y bloquear otros -->
+          <label class="payment-option selected">
+            <input type="radio" name="payment" value="wompi" checked disabled> Wompi (único)
+          </label>
+        </div>
+
+        <button id="pay-btn" class="pay-btn">Ir al pago (Wompi)</button>
+
+        <p class="legal">Se te redirigirá a Wompi para procesar el pago. El monto final será verificado por nuestro servidor (RN-062).</p>
+      </aside>
+
+    </div>
+  </main>
+
+  <script src="javascript/backend.js"></script>
+</body>
+</html>
