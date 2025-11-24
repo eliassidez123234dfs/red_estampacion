@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RED - Página Principal</title>
+    <style>
+        :root {
+            --rojo: #d32f2f;
+            --negro: #212121;
+            --blanco: #ffffff;
+            --gris-claro: #f5f5f5;
+            --gris-medio: #e0e0e0;
+            --gris-oscuro: #9e9e9e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--gris-claro);
+            color: var(--negro);
+        }
+
+        header {
+            background-color: var(--blanco);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--rojo);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: var(--rojo);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav li a {
+            text-decoration: none;
+            color: var(--negro);
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+            nav li a:hover, nav li a.active {
+                background-color: var(--rojo);
+                color: var(--blanco);
+            }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cart-btn {
+            position: relative;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--negro);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--rojo);
+            color: var(--blanco);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-menu {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--rojo);
+            color: var(--blanco);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--blanco);
+            border: 1px solid var(--gris-medio);
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            min-width: 150px;
+            z-index: 1000;
+            display: none;
+        }
+
+            .dropdown-menu.show {
+                display: block;
+            }
+
+        .dropdown-item {
+            padding: 10px 15px;
+            display: block;
+            text-decoration: none;
+            color: var(--negro);
+            transition: all 0.3s;
+        }
+
+            .dropdown-item:hover {
+                background-color: var(--gris-claro);
+            }
+
+        main {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--rojo), #b71c1c);
+            color: var(--blanco);
+            padding: 60px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+            .hero h1 {
+                font-size: 42px;
+                margin-bottom: 20px;
+            }
+
+            .hero p {
+                font-size: 18px;
+                margin-bottom: 30px;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--blanco);
+            color: var(--rojo);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+            .btn:hover {
+                background-color: var(--gris-claro);
+                transform: translateY(-2px);
+            }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background-color: var(--blanco);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--rojo);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--negro);
+        }
+
+        .featured-products {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: var(--rojo);
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--rojo);
+            padding-bottom: 10px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: var(--blanco);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+            .product-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .product-image {
+            height: 150px;
+            background-color: var(--gris-claro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gris-oscuro);
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            color: var(--rojo);
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: var(--negro);
+            color: var(--blanco);
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--rojo);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+            .footer-section ul li {
+                margin-bottom: 10px;
+            }
+
+                .footer-section ul li a {
+                    color: var(--gris-claro);
+                    text-decoration: none;
+                    transition: color 0.3s;
+                }
+
+                    .footer-section ul li a:hover {
+                        color: var(--rojo);
+                    }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid var(--gris-oscuro);
+            color: var(--gris-claro);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                padding: 30px 20px;
+            }
+
+                .hero h1 {
+                    font-size: 28px;
+                }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">RED</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Inicio</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Categorías</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <button class="cart-btn">
+                🛒
+                <span class="cart-count">0</span>
+            </button>
+            <div class="user-menu" id="userMenu">
+                <div class="user-avatar" id="userInitial">U</div>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#" class="dropdown-item" id="profileLink">Mi Perfil</a>
+                    <a href="#" class="dropdown-item" id="ordersLink">Mis Pedidos</a>
+                    <a href="#" class="dropdown-item" id="wishlistLink">Lista de Deseos</a>
+                    <a href="#" class="dropdown-item" id="logoutLink">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+        
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>RED</h3>
+                <p>Tu tienda de confianza desde 2010. Calidad y servicio garantizados.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Categorías</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Soporte</h3>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Política de Devoluciones</a></li>
+                    <li><a href="#">Centro de Ayuda</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📧 info@red.com</li>
+                    <li>📱 +57 300 123 4567</li>
+                    <li>📍 Calle Principal #123</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 RED. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+        // Verificar si hay un usuario autenticado
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+            if (!currentUser) {
+                // Si no hay usuario autenticado, redirigir a la página de login
+                window.location.href = 'auth_module.html';
+                return;
+            }
+
+            // Actualizar la información del usuario en la interfaz
+            document.getElementById('userInitial').textContent = currentUser.nombre.charAt(0);
+
+            // Configurar menú desplegable
+            const userMenu = document.getElementById('userMenu');
+            const dropdownMenu = document.getElementById('dropdownMenu');
+
+            userMenu.addEventListener('click', function (e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+            });
+
+            // Cerrar menú al hacer clic fuera
+            document.addEventListener('click', function (e) {
+                if (!userMenu.contains(e.target)) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+
+            // Configurar eventos de los enlaces del menú
+            document.getElementById('profileLink').addEventListener('click', function (e) {
+                e.preventDefault();
+                alert('Redirigiendo a tu perfil...');
+                // Aquí podrías redirigir a una página de perfil específica
+                // window.location.href = 'user_profile.html';
+            });
+
+            document.getElementById('ordersLink').addEventListener('click', function (e) {
+                e.preventDefault();
+                alert('Redirigiendo a tus pedidos...');
+                // window.location.href = 'user_orders.html';
+            });
+
+            document.getElementById('wishlistLink').addEventListener('click', function (e) {
+                e.preventDefault();
+                alert('Redirigiendo a tu lista de deseos...');
+                // window.location.href = 'user_wishlist.html';
+            });
+
+            // Configurar evento de cierre de sesión
+            document.getElementById('logoutLink').addEventListener('click', function (e) {
+                e.preventDefault();
+                localStorage.removeItem('currentUser');
+                window.location.href = 'modulos/usuarios/index.html';
+            });
+        });
+    </script>
+</body>
+</html>

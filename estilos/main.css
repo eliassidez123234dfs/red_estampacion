@@ -313,6 +313,11 @@ main {
     margin: 0 auto;
 }
 
+.imagen-opinion {
+    width: 300px;
+    border-radius: 10px;
+}
+
 .cart_opinion {
     background-color: #fff;
     padding: 2rem;

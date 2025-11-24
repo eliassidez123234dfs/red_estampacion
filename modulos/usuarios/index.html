@@ -1,0 +1,540 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RED - Registro e Inicio de Sesión</title>
+    <style>
+        :root {
+            --rojo: #d32f2f;
+            --negro: #212121;
+            --blanco: #ffffff;
+            --gris-claro: #f5f5f5;
+            --gris-medio: #e0e0e0;
+            --gris-oscuro: #9e9e9e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--gris-claro);
+            color: var(--negro);
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .left-panel {
+            background-color: var(--gris-medio);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 110px;
+            color: var(--blanco);
+            text-align: center;
+        }
+
+            .left-panel h2 {
+                font-size: 28px;
+                margin-bottom: 20px;
+                text-transform: uppercase;
+            }
+
+            .left-panel a {
+                color: var(--rojo);
+                text-decoration: underline;
+                font-weight: bold;
+                margin-top: 10px;
+                font-size: 16px;
+            }
+
+        .right-panel {
+            background-color: var(--blanco);
+            padding: 50px;
+            width: 500px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+            .right-panel h1 {
+                font-size: 32px;
+                margin-bottom: 20px;
+                color: var(--negro);
+            }
+
+        /* Formulario de Registro */
+        #signupForm, #loginForm {
+            display: none;
+        }
+
+            #signupForm.active, #loginForm.active {
+                display: block;
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+            .form-group label {
+                width: 100%;
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: var(--negro);
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid var(--gris-medio);
+                border-radius: 4px;
+                font-size: 14px;
+            }
+
+        .password-rules {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: var(--gris-claro);
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--gris-oscuro);
+        }
+
+            .password-rules ul {
+                list-style-type: none;
+                padding-left: 20px;
+            }
+
+            .password-rules li::before {
+                content: "• ";
+                color: var(--negro);
+            }
+
+        .terms {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+            .terms input[type="radio"] {
+                margin-right: 10px;
+                accent-color: var(--rojo);
+            }
+
+            .terms label {
+                font-size: 14px;
+                color: var(--negro);
+            }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--rojo);
+            color: var(--blanco);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+            .btn-submit:hover {
+                background-color: #b71c1c;
+            }
+
+        .message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .success {
+            background-color: #dcedc8;
+            color: #33691e;
+        }
+
+        .error {
+            background-color: #ffcdd2;
+            color: #b71c1c;
+        }
+
+        /* Header de la ventana (simulación) */
+        .window-header {
+            background-color: var(--gris-medio);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .window-header .dots {
+                display: flex;
+                gap: 5px;
+            }
+
+            .window-header .dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: #9e9e9e;
+            }
+
+            .window-header .title {
+                color: var(--negro);
+                font-size: 12px;
+            }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                height: auto;
+                flex-direction: column;
+            }
+
+            .left-panel {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .right-panel {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Simulación de header de ventana -->
+        <div class="window-header">
+        </div>
+
+        <!-- Panel izquierdo -->
+        <div class="left-panel">
+            <h2 id="leftPanelTitle">YA TIENES CUENTA?</h2>
+            <a href="#" id="toggleLink">Inicia Sesión</a>
+        </div>
+
+        <!-- Panel derecho (formularios) -->
+        <div class="right-panel">
+            <!-- Formulario de Registro -->
+            <form id="signupForm" class="active">
+                <h1>Welcome</h1>
+
+                <div class="form-group">
+                    <label for="userName">User</label>
+                    <input type="text" id="userName" placeholder="Nombre completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="userEmail">Email</label>
+                    <input type="email" id="userEmail" placeholder="correo@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="userPassword">Password</label>
+                    <input type="password" id="userPassword" placeholder="********" required>
+                </div>
+
+                <div class="password-rules">
+                    <p>La contraseña debe cumplir con los siguientes requisitos:</p>
+                    <ul>
+                        <li>Debe tener mínimo 8 caracteres.</li>
+                        <li>Debe tener una combinación de mayúsculas, minúsculas, números y signos.</li>
+                    </ul>
+                </div>
+
+                <div class="terms">
+                    <input type="radio" id="terms" name="terms" required>
+                    <label for="terms">Términos y condiciones</label>
+                </div>
+
+                <button type="submit" class="btn-submit" id="signupBtn">Empezar</button>
+            </form>
+
+            <!-- Formulario de Inicio de Sesión -->
+            <form id="loginForm">
+                <h1>Iniciar Sesión</h1>
+
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="correo@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="********" required>
+                </div>
+
+                <div class="form-group">
+                    <a href="#" id="forgotPassword">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="btn-submit" id="loginBtn">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Simulación de datos de usuario (en producción estaría en la base de datos)
+        let users = [
+            {
+                id: 1,
+                nombre: "Admin Principal",
+                correo: "admin@example.com",
+                contrasena: "Admin123!",
+                rol: "Administrador",
+                estado: "Activo",
+                email_verificado: true,
+                fecha_registro: "2025-11-01",
+                intentos_fallidos: 0
+            },
+            {
+                id: 2,
+                nombre: "Juan Pérez",
+                correo: "juan@example.com",
+                contrasena: "User123!",
+                rol: "Usuario",
+                estado: "Activo",
+                email_verificado: true,
+                fecha_registro: "2025-11-15",
+                intentos_fallidos: 0
+            },
+            {
+                id: 3,
+                nombre: "María López",
+                correo: "maria@example.com",
+                contrasena: "Pass123!",
+                rol: "Usuario",
+                estado: "Inactivo",
+                email_verificado: false,
+                fecha_registro: "2025-11-10",
+                intentos_fallidos: 0
+            }
+        ];
+
+        // Validación de contraseña según RN-001
+        function validatePassword(password) {
+            const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+            return passwordRegex.test(password);
+        }
+
+        // Validación de correo único según RN-002
+        function isEmailUnique(email) {
+            return !users.some(user => user.correo.toLowerCase() === email.toLowerCase());
+        }
+
+        // Manejo del formulario de registro
+        document.getElementById('signupForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('userName').value.trim();
+            const email = document.getElementById('userEmail').value.trim().toLowerCase();
+            const password = document.getElementById('userPassword').value;
+            const termsChecked = document.getElementById('terms').checked;
+
+            // Validaciones
+            if (!name || !email || !password) {
+                showMessage('Por favor, completa todos los campos.', 'error');
+                return;
+            }
+
+            if (!isEmailUnique(email)) {
+                showMessage('El correo electrónico ya está registrado.', 'error');
+                return;
+            }
+
+            if (!validatePassword(password)) {
+                showMessage('La contraseña no cumple con los requisitos. Debe tener mínimo 8 caracteres, incluir mayúscula, minúscula, número y símbolo.', 'error');
+                return;
+            }
+
+            if (!termsChecked) {
+                showMessage('Debes aceptar los términos y condiciones.', 'error');
+                return;
+            }
+
+            // Simular envío de correo de verificación (RF-003)
+            showMessage(`Registro exitoso. Se ha enviado un correo de verificación a ${email}.`, 'success');
+
+            // Crear nuevo usuario
+            const newUser = {
+                id: users.length + 1,
+                nombre: name,
+                correo: email,
+                contrasena: password,
+                rol: "Usuario",
+                estado: "Inactivo", // Por defecto, inactivo hasta verificar email
+                email_verificado: false,
+                fecha_registro: new Date().toISOString().split('T')[0],
+                intentos_fallidos: 0
+            };
+
+            users.push(newUser);
+
+            // Simular redirección a página de confirmación
+            setTimeout(() => {
+                showMessage('Ahora verifica tu correo para activar tu cuenta.', 'success');
+            }, 2000);
+        });
+
+        // Manejo del formulario de inicio de sesión
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+            const password = document.getElementById('loginPassword').value;
+
+            if (!email || !password) {
+                showMessage('Por favor, completa todos los campos.', 'error');
+                return;
+            }
+
+            const user = users.find(u => u.correo === email && u.contrasena === password);
+
+            if (!user) {
+                showMessage('Credenciales incorrectas.', 'error');
+                return;
+            }
+
+            if (!user.email_verificado) {
+                showMessage('Tu cuenta no está verificada. Por favor, revisa tu correo electrónico para activarla.', 'error');
+                return;
+            }
+
+            if (user.estado === 'Bloqueado') {
+                showMessage('Tu cuenta ha sido bloqueada. Por favor, contacta con el administrador.', 'error');
+                return;
+            }
+
+            if (user.estado === 'Inactivo') {
+                showMessage('Tu cuenta está inactiva. Por favor, contacta con el administrador.', 'error');
+                return;
+            }
+
+            showMessage(`¡Bienvenido, ${user.nombre}!`, 'success');
+
+            // Guardar usuario en sesión (simulación)
+            localStorage.setItem('currentUser', JSON.stringify({
+                id: user.id,
+                nombre: user.nombre,
+                correo: user.correo,
+                rol: user.rol,
+                estado: user.estado,
+                fecha_ultima_sesion: new Date().toLocaleString()
+            }));
+
+            // Redirigir según el rol del usuario
+            setTimeout(() => {
+                if (user.rol === 'Administrador') {
+                    window.location.href = '../administracion/dashboard.html';
+                } else {
+                    window.location.href = '../../pagina.html';
+                }
+            }, 1500);
+        });
+
+        // Manejo del botón "Empezar" en registro
+        document.getElementById('signupBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            // El formulario ya tiene su propio evento submit, no necesitamos hacer nada extra aquí
+            document.getElementById('signupForm').requestSubmit();
+        });
+
+        // Manejo del botón "Iniciar Sesión"
+        document.getElementById('loginBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('loginForm').requestSubmit();
+        });
+
+        // Manejo del enlace para cambiar entre formularios
+        document.getElementById('toggleLink').addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const signupForm = document.getElementById('signupForm');
+            const loginForm = document.getElementById('loginForm');
+            const leftPanelTitle = document.getElementById('leftPanelTitle');
+            const toggleLink = document.getElementById('toggleLink');
+
+            if (signupForm.classList.contains('active')) {
+                // Cambiar a login
+                signupForm.classList.remove('active');
+                loginForm.classList.add('active');
+                leftPanelTitle.textContent = '¿NO TIENES CUENTA?';
+                toggleLink.textContent = 'Regístrate';
+            } else {
+                // Cambiar a signup
+                loginForm.classList.remove('active');
+                signupForm.classList.add('active');
+                leftPanelTitle.textContent = 'YA TIENES CUENTA?';
+                toggleLink.textContent = 'Inicia Sesión';
+            }
+        });
+
+        // Manejo del enlace "¿Olvidaste tu contraseña?"
+        document.getElementById('forgotPassword').addEventListener('click', (e) => {
+            e.preventDefault();
+            showMessage('Se ha enviado un correo para recuperar tu contraseña.', 'success');
+            // En una aplicación real, aquí se generaría un token de recuperación y se enviaría por correo.
+        });
+
+        // Función para mostrar mensajes
+        function showMessage(text, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.textContent = text;
+            document.body.prepend(messageDiv);
+
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
