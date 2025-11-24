@@ -1,0 +1,1 @@
+-- SCRIPT CLÁSICO (está bien por sí solo y en teoría se puede usar bien pero aún tiene cosas de gamificación que se supone ya descartamos y no esta 100% de acuerdo a lo establecido en la Matriz de Requerimientos y Ficha Técnica)

@@ -1,4 +1,5 @@
--- SCRIPT MODERNO (este toca revisarlo bien en busca de errores pero este script ya debería estar más semejante a todo lo que dicen los requisitos de información de la matriz)-- Nota: este script aún no contempla/incluye lo que serían las tablas/entidades generados por las herramientas, lenguajes, frameworks, tecnologías, apis, etc, que usemos. Este solo se centra en lo que sería la base de datos y modelo de negocio general, osea lo que será específico y necesario para el proyecto independientemente de donde o que se le aplique.
+
+-- Nota: este script aún no contempla/incluye lo que serían las tablas/entidades generados por las herramientas, lenguajes, frameworks, tecnologías, apis, etc, que usemos. Este solo se centra en lo que sería la base de datos y modelo de negocio general, osea lo que será específico y necesario para el proyecto independientemente de donde o que se le aplique.
 -- ============================================================================
 -- PROYECTO RED - SCRIPT SQL OPTIMIZADO Y NORMALIZADO
 -- Basado en Matriz de Requerimientos y Ficha Técnica
