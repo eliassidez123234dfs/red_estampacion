@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos | RED</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../static/variables.css">
+    <link rel="stylesheet" href="../../static/global.css">
+    <link rel="stylesheet" href="../../static/css/catalogo.css">
+</head>
+<body>
+    <!-- HEADER (coherente con carrito y checkout) -->
+    <header class="header">
+        <h1 class="logo">RED</h1>
+        <nav class="header-center">
+            <a href="../../pagina.html" class="nav-link">Inicio</a>
+            <a href="index.html" class="nav-link active">Catálogo</a>
+            <a href="../carrito/index.html" class="nav-link">Carrito</a>
+        </nav>
+        <div class="header-right">
+            <a href="../carrito/index.html" class="cart-btn">
+                🛒 <span class="cart-count" id="cartCount">0</span>
+            </a>
+            <button class="user-btn">Juan</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <div class="container">
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Catálogo de Productos</h1>
+                    <p class="page-subtitle">Descubre nuestros diseños personalizados</p>
+                </div>
+            </div>
+
+            <!-- LAYOUT: FILTROS + PRODUCTOS -->
+            <div class="catalog-layout">
+                <!-- SIDEBAR FILTROS (RF-024 a RF-030) -->
+                <aside class="filters-sidebar">
+                    <div class="filters-header">
+                        <h3 class="filters-title">Filtros</h3>
+                        <button class="filters-clear" id="limpiarFiltros">Limpiar</button>
+                    </div>
+
+                    <!-- Búsqueda (RF-031) -->
+                    <div class="filter-section">
+                        <label class="filter-label">Buscar</label>
+                        <div class="search-bar">
+                            <span class="search-icon">🔍</span>
+                            <input 
+                                type="text" 
+                                class="search-input" 
+                                id="buscarProducto" 
+                                placeholder="Buscar productos...">
+                        </div>
+                    </div>
+
+                    <!-- Categorías (RF-024) -->
+                    <div class="filter-section">
+                        <label class="filter-label">Categorías</label>
+                        <div class="filter-options" id="categoriasFiltro">
+                            <!-- Se llenarán dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Rango de Precio (RF-025) -->
+                    <div class="filter-section">
+                        <label class="filter-label">Precio</label>
+                        <div class="price-inputs">
+                            <input 
+                                type="number" 
+                                class="price-input" 
+                                id="precioMin" 
+                                placeholder="Mín"
+                                min="0">
+                            <span>-</span>
+                            <input 
+                                type="number" 
+                                class="price-input" 
+                                id="precioMax" 
+                                placeholder="Máx"
+                                min="0">
+                        </div>
+                        <button class="btn-aplicar-precio" id="aplicarPrecio">Aplicar</button>
+                    </div>
+
+                    <!-- Colores (RF-026) -->
+                    <div class="filter-section">
+                        <label class="filter-label">Colores</label>
+                        <div class="color-filters" id="coloresFiltro">
+                            <!-- Se llenarán dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Tallas (RF-027) -->
+                    <div class="filter-section">
+                        <label class="filter-label">Tallas</label>
+                        <div class="size-filters" id="tallasFiltro">
+                            <!-- Se llenarán dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Stock (RF-028) -->
+                    <div class="filter-section">
+                        <label class="filter-label">Disponibilidad</label>
+                        <div class="filter-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="soloStock" checked>
+                                <span>Solo productos en stock</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- ÁREA DE PRODUCTOS -->
+                <div class="products-area">
+                    <!-- BARRA DE ORDENAMIENTO Y RESULTADOS (RF-032, RF-033) -->
+                    <div class="products-toolbar">
+                        <div class="results-info">
+                            <span id="resultadosCount">0 productos encontrados</span>
+                        </div>
+                        <div class="sort-controls">
+                            <label class="sort-label">Ordenar por:</label>
+                            <select class="sort-select" id="ordenarPor">
+                                <option value="fecha_desc">Más recientes</option>
+                                <option value="fecha_asc">Más antiguos</option>
+                                <option value="nombre_asc">Nombre (A-Z)</option>
+                                <option value="nombre_desc">Nombre (Z-A)</option>
+                                <option value="precio_asc">Precio: menor a mayor</option>
+                                <option value="precio_desc">Precio: mayor a menor</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- GRID DE PRODUCTOS (RF-023, RF-029, RF-030) -->
+                    <div class="products-grid" id="productosGrid">
+                        <!-- Los productos se cargarán dinámicamente aquí -->
+                    </div>
+
+                    <!-- ESTADO VACÍO -->
+                    <div class="empty-state hidden" id="emptyState">
+                        <div class="empty-icon">🔍</div>
+                        <h3>No se encontraron productos</h3>
+                        <p>Intenta ajustar los filtros o realiza una búsqueda diferente</p>
+                        <button class="btn btn-primary" id="btnLimpiarFiltrosEmpty">Limpiar filtros</button>
+                    </div>
+
+                    <!-- PAGINACIÓN (RF-034, RF-035) -->
+                    <div class="pagination" id="paginacionContainer">
+                        <button class="pagination-btn" id="btnPrevPage" disabled>← Anterior</button>
+                        <div class="pagination-pages" id="paginationPages"></div>
+                        <button class="pagination-btn" id="btnNextPage">Siguiente →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 RED Estampación. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="../../static/js/mockData.js"></script>
+    <script>
+        // Reiniciar datos mock (solo para desarrollo)
+        // Descomenta la línea siguiente si necesitas reiniciar los datos
+        // localStorage.clear(); MockData.init(); location.reload();
+        
+        // Verificar si hay productos
+        window.addEventListener('DOMContentLoaded', () => {
+            const productos = localStorage.getItem('productos_red');
+            if (!productos || JSON.parse(productos).length === 0) {
+                console.log('⚠️ No hay productos, reiniciando datos...');
+                localStorage.clear();
+                MockData.init();
+                setTimeout(() => location.reload(), 100);
+            }
+        });
+    </script>
+    <script src="../../static/js/catalogo.js"></script>
+</body>
+</html>

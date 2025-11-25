@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto - RED Estampación</title>
+    <link rel="stylesheet" href="../../static/css/productos.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../../index.html">RED</a>
+            </div>
+            <nav class="nav">
+                <a href="../catalogo/index.html" class="nav-link">Catálogo</a>
+                <a href="../carrito/index.html" class="nav-link">Mi Carrito</a>
+                <a href="../admin/index.html" class="nav-link">Admin</a>
+            </nav>
+            <button class="cart-btn" onclick="window.location.href='../carrito/index.html'">
+                🛒 <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="../../index.html">Inicio</a>
+        <span class="separator">›</span>
+        <a href="../catalogo/index.html">Catálogo</a>
+        <span class="separator">›</span>
+        <span class="current" id="breadcrumbProducto">Producto</span>
+    </div>
+
+    <!-- Producto Detalle -->
+    <main class="producto-detalle">
+        <div class="container">
+            <!-- Galería de Imágenes -->
+            <div class="galeria-container">
+                <div class="imagen-principal-wrapper">
+                    <img id="imagenPrincipal" src="" alt="" class="imagen-principal">
+                    <button class="zoom-btn" id="zoomBtn">🔍</button>
+                </div>
+                <div class="thumbnails" id="thumbnailsContainer">
+                    <!-- Thumbnails generados dinámicamente -->
+                </div>
+            </div>
+
+            <!-- Información del Producto -->
+            <div class="info-container">
+                <div class="categoria-badge" id="categoriaBadge">Categoría</div>
+                <h1 class="producto-titulo" id="productoTitulo">Cargando...</h1>
+                <div class="producto-precio" id="productoPrecio">$0</div>
+                
+                <div class="producto-descripcion" id="productoDescripcion">
+                    <!-- Descripción del producto -->
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Selector de Variantes -->
+                <div class="variantes-section">
+                    <div class="variante-group">
+                        <label class="variante-label">Talla:</label>
+                        <div class="tallas-container" id="tallasContainer">
+                            <!-- Botones de talla generados dinámicamente -->
+                        </div>
+                    </div>
+
+                    <div class="variante-group">
+                        <label class="variante-label">Color: <span id="colorNombre">Selecciona un color</span></label>
+                        <div class="colores-container" id="coloresContainer">
+                            <!-- Círculos de color generados dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Stock y Cantidad -->
+                <div class="stock-section">
+                    <div class="stock-info" id="stockInfo">
+                        <span class="stock-label">Disponibilidad:</span>
+                        <span class="stock-badge" id="stockBadge">Selecciona talla y color</span>
+                    </div>
+                    
+                    <div class="cantidad-group" id="cantidadGroup" style="display: none;">
+                        <label class="cantidad-label">Cantidad:</label>
+                        <div class="cantidad-controls">
+                            <button class="btn-cantidad" id="btnMenos">−</button>
+                            <input type="number" class="cantidad-input" id="cantidadInput" value="1" min="1" max="1">
+                            <button class="btn-cantidad" id="btnMas">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Botón Agregar al Carrito -->
+                <button class="btn-agregar-carrito" id="btnAgregarCarrito" disabled>
+                    Agregar al Carrito
+                </button>
+
+                <div class="mensaje-exito" id="mensajeExito" style="display: none;">
+                    ✓ Producto agregado al carrito
+                </div>
+            </div>
+        </div>
+
+        <!-- Productos Relacionados -->
+        <section class="relacionados-section">
+            <div class="container">
+                <h2 class="seccion-titulo">Productos Relacionados</h2>
+                <div class="productos-relacionados-grid" id="relacionadosGrid">
+                    <!-- Productos relacionados generados dinámicamente -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Zoom -->
+    <div class="modal-zoom" id="modalZoom" style="display: none;">
+        <div class="modal-zoom-overlay" id="modalZoomOverlay"></div>
+        <div class="modal-zoom-content">
+            <button class="modal-zoom-close" id="closeZoom">×</button>
+            <img id="imagenZoom" src="" alt="" class="imagen-zoom">
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../../static/js/mockData.js"></script>
+    <script src="../../static/js/productos.js"></script>
+
+    <!-- Auto-inicializar mockData si está vacío -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const productos = localStorage.getItem('productos_red');
+            if (!productos || JSON.parse(productos).length === 0) {
+                console.log('⚠️ No hay productos, reinicializando mockData...');
+                localStorage.clear();
+                MockData.init();
+                location.reload();
+            }
+        });
+    </script>
+</body>
+</html>

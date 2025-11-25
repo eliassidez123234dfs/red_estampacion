@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RED - Dashboard Administrador</title>
+    <link href="css/dashboard.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">RED ADMIN</div>
+        </div>
+        <nav class="sidebar-menu">
+            <div class="menu-item active">
+                <span class="menu-icon">📊</span>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            <div class="menu-item">
+                <span class="menu-icon">👥</span>
+                Gestión de Usuarios
+            </div>
+            <div class="menu-item">
+                <span class="menu-icon">📦</span>
+                Gestión de Productos
+            </div>
+            <div class="menu-item">
+                <span class="menu-icon">🛒</span>
+                <a href="GestionPedido.html">Gestión de Pedidos</a>
+            </div>
+            <div class="menu-item">
+                <span class="menu-icon">📈</span>
+                Reportes
+            </div>
+            <div class="menu-item">
+                <span class="menu-icon">⚙️</span>
+                Configuración
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="user-info">
+                <div class="avatar" id="userInitial">A</div>
+                <span id="userName">Admin</span>
+                <button class="logout-btn" id="logoutBtn">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <h1 class="welcome-message">Bienvenido, <span id="welcomeName">Administrador</span></h1>
+
+        <!-- Estadísticas -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-title">USUARIOS ACTIVOS</div>
+                <div class="stat-value">24</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">USUARIOS BLOQUEADOS</div>
+                <div class="stat-value">3</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">NUEVOS REGISTROS</div>
+                <div class="stat-value">8</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">TASA DE VERIFICACIÓN</div>
+                <div class="stat-value">92%</div>
+            </div>
+        </div>
+
+        <!-- Últimos Usuarios -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">ÚLTIMOS USUARIOS REGISTRADOS</h2>
+                <button class="btn btn-primary">Ver Todos</button>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Fecha Registro</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Admin Principal</td>
+                            <td>admin@example.com</td>
+                            <td>Administrador</td>
+                            <td><span class="status-badge status-activo">Activo</span></td>
+                            <td>2025-11-01</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action btn-edit">✏️</button>
+                                    <button class="btn-action btn-delete">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Juan Pérez</td>
+                            <td>juan@example.com</td>
+                            <td>Usuario</td>
+                            <td><span class="status-badge status-activo">Activo</span></td>
+                            <td>2025-11-15</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action btn-edit">✏️</button>
+                                    <button class="btn-action btn-block">🔒</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>María López</td>
+                            <td>maria@example.com</td>
+                            <td>Usuario</td>
+                            <td><span class="status-badge status-inactivo">Inactivo</span></td>
+                            <td>2025-11-10</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action btn-edit">✏️</button>
+                                    <button class="btn-action btn-delete">🗑️</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Carlos Ruiz</td>
+                            <td>carlos@example.com</td>
+                            <td>Usuario</td>
+                            <td><span class="status-badge status-bloqueado">Bloqueado</span></td>
+                            <td>2025-11-05</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn-action btn-edit">✏️</button>
+                                    <button class="btn-action btn-block">🔓</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Actividad Reciente -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">ACTIVIDAD RECIENTE</h2>
+            </div>
+            <ul>
+                <li>Administrador actualizó el perfil de Juan Pérez</li>
+                <li>Administrador bloqueó la cuenta de Carlos Ruiz</li>
+                <li>Administrador creó un nuevo usuario: Ana Gómez</li>
+                <li>Administrador verificó el correo de María López</li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

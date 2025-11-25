@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Inicial</title>
-    <link rel="stylesheet" href="estilos/main.css">
+    <link rel="stylesheet" href="static/css/main.css">
 </head>
 <body>
     <header>
@@ -13,9 +13,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Servicio</a></li>
-                <li><a href="">Reseñas</a></li>
+                <li><a href="#contenedor_principal">Inicio</a></li>
+                <li><a href="#servicio">Servicio</a></li>
+                <li><a href="#opiniones">Reseñas</a></li>
                 <li><a href="">Sobre nosotros</a></li>
                 <li><a href="">Contacto</a></li>
             </ul>
@@ -29,9 +29,9 @@
     <main>
         <div class="contenedor_principal">
             <div class="texto_principal">
-                <h1>Bienvenido a Nuestra Página</h1>
+                <h1>Bienvenido a RED</h1>
                 <p>Ofrecemos los mejores servicios para satisfacer tus necesidades de diseño.</p>
-                <button>Conoce mas</button>
+                <button><a href="modulos/usuarios/index.html">Conoce mas</a></button>
             </div>
         </div>
     </main>
@@ -39,33 +39,8 @@
     <div class="container_all">
 
         <div class="servicio" id="servicio">
-            <h2>Nuestros Servicios</h2>
+            <h2>Servicios</h2>
             <div class="contenedor_servicio">
-                <div class="cart_servicio">
-                    <img src="" alt="">
-                    <h3>Diseño con un pez</h3>
-                    <p>Este es un diseño con un pez creado por <strong>Elias</strong></p>
-                </div>
-                <div class="cart_servicio">
-                    <img src="" alt="">
-                    <h3>Diseño con un pez</h3>
-                    <p>Este es un diseño con un pez creado por <strong>Elias</strong></p>
-                </div>
-                <div class="cart_servicio">
-                    <img src="" alt="">
-                    <h3>Diseño con un pez</h3>
-                    <p>Este es un diseño con un pez creado por <strong>Elias</strong></p>
-                </div>
-                <div class="cart_servicio">
-                    <img src="" alt="">
-                    <h3>Diseño con un pez</h3>
-                    <p>Este es un diseño con un pez creado por <strong>Elias</strong></p>
-                </div>
-                <div class="cart_servicio">
-                    <img src="" alt="">
-                    <h3>Diseño con un pez</h3>
-                    <p>Este es un diseño con un pez creado por <strong>Elias</strong></p>
-                </div>
                 <div class="cart_servicio">
                     <img src="" alt="">
                     <h3>Diseño con un pez</h3>
@@ -87,87 +62,48 @@
         <div class="opiniones" id="opinion">
             <h2>Reseñas de Clientes</h2>
             <div class="contenedor_opiniones">
-
                 <div class="cart_opinion">
                     <div class="imagen-nombre">
-                        <img src="" alt="">
+                        <img src="assets/img/imagen1.avif" alt="">
                         <div class="nombre_titulo">
                             <h3>Juan Perez</h3>
                             <p>Cliente desde 2022</p>
                         </div>  
                     </div>
+                    <img class="imagen-opinion" src="assets/img/imagen1.avif" alt="">
                     <div class="texto_opinion">
-                        <p>Excelente servicio y atención al cliente. Muy recomendable.</p>
+                        <p>Excelente servicio. Muy recomendable.</p>
+                        <span>★★★★★</span>
+                    </div>
+
+                </div>
+
+                <div class="cart_opinion">
+                    <div class="imagen-nombre">
+                        <img src="assets/img/imagen1.avif" alt="">
+                        <div class="nombre_titulo">
+                            <h3>Juan Perez</h3>
+                            <p>Cliente desde 2022</p>
+                        </div>  
+                    </div>
+                    <img class="imagen-opinion" src="assets/img/imagen1.avif" alt="">
+                    <div class="texto_opinion">
+                        <p>Excelente servicio. Muy recomendable.</p>
                         <span>★★★★★</span>
                     </div>
                 </div>
 
                 <div class="cart_opinion">
                     <div class="imagen-nombre">
-                        <img src="" alt="">
+                        <img src="assets/img/imagen1.avif" alt="">
                         <div class="nombre_titulo">
                             <h3>Juan Perez</h3>
                             <p>Cliente desde 2022</p>
                         </div>  
                     </div>
+                    <img class="imagen-opinion" src="assets/img/imagen1.avif" alt="">
                     <div class="texto_opinion">
-                        <p>Excelente servicio y atención al cliente. Muy recomendable.</p>
-                        <span>★★★★★</span>
-                    </div>
-                </div>
-
-                <div class="cart_opinion">
-                    <div class="imagen-nombre">
-                        <img src="" alt="">
-                        <div class="nombre_titulo">
-                            <h3>Juan Perez</h3>
-                            <p>Cliente desde 2022</p>
-                        </div>  
-                    </div>
-                    <div class="texto_opinion">
-                        <p>Excelente servicio y atención al cliente. Muy recomendable.</p>
-                        <span>★★★★★</span>
-                    </div>
-                </div>
-
-                <div class="cart_opinion">
-                    <div class="imagen-nombre">
-                        <img src="" alt="">
-                        <div class="nombre_titulo">
-                            <h3>Juan Perez</h3>
-                            <p>Cliente desde 2022</p>
-                        </div>  
-                    </div>
-                    <div class="texto_opinion">
-                        <p>Excelente servicio y atención al cliente. Muy recomendable.</p>
-                        <span>★★★★★</span>
-                    </div>
-                </div>
-
-                <div class="cart_opinion">
-                    <div class="imagen-nombre">
-                        <img src="" alt="">
-                        <div class="nombre_titulo">
-                            <h3>Juan Perez</h3>
-                            <p>Cliente desde 2022</p>
-                        </div>  
-                    </div>
-                    <div class="texto_opinion">
-                        <p>Excelente servicio y atención al cliente. Muy recomendable.</p>
-                        <span>★★★★★</span>
-                    </div>
-                </div>
-
-                <div class="cart_opinion">
-                    <div class="imagen-nombre">
-                        <img src="" alt="">
-                        <div class="nombre_titulo">
-                            <h3>Juan Perez</h3>
-                            <p>Cliente desde 2022</p>
-                        </div>  
-                    </div>
-                    <div class="texto_opinion">
-                        <p>Excelente servicio y atención al cliente. Muy recomendable.</p>
+                        <p>Excelente servicio. Muy recomendable.</p>
                         <span>★★★★★</span>
                     </div>
                 </div>
