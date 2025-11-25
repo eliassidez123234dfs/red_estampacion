@@ -1,28 +1,25 @@
  // Cerrar Sesion
  
-// Eventos para los botones de acciones (simulación)
+// Verificar si hay un usuario autenticado
+document.addEventListener('DOMContentLoaded', function () {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-document.querySelectorAll('.btn-delete').forEach(button => {
-    button.addEventListener('click', function () {
-        const row = this.closest('tr');
-        const userName = row.cells[1].textContent;
-        if (confirm(`¿Estás seguro de eliminar al usuario ${userName}?`)) {
-            alert(`Usuario ${userName} eliminado (soft delete)`);
-        }
-    });
-});
+    if (!currentUser || currentUser.rol !== 'Administrador') {
+        // Si no hay usuario o no es administrador, redirigir a la página de login
+        localStorage.removeItem('currentUser');
+        window.location.href = '../usuarios/index.html';
+        return;
+    }
 
-document.querySelectorAll('.btn-block').forEach(button => {
-    button.addEventListener('click', function () {
-        const row = this.closest('tr');
-        const userName = row.cells[1].textContent;
-        const status = row.querySelector('.status-badge').textContent;
+    // Actualizar la información del usuario en la interfaz
+    document.getElementById('userName').textContent = currentUser.nombre;
+    document.getElementById('welcomeName').textContent = currentUser.nombre;
+    document.getElementById('userInitial').textContent = currentUser.nombre.charAt(0);
 
-        if (status === 'Bloqueado') {
-            alert(`Desbloqueando usuario: ${userName}`);
-        } else {
-            alert(`Bloqueando usuario: ${userName}`);
-        }
+    // Configurar evento de cierre de sesión
+    document.getElementById('logoutBtn').addEventListener('click', function () {
+        localStorage.removeItem('currentUser');
+        window.location.href = '../usuarios/index.html';
     });
 });
 
