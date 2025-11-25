@@ -3,141 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart</title>
-    <link rel="stylesheet" href="CSS/carrito.css">
+    <title>Carrito RED</title>
+    <link rel="stylesheet" href="css/carrito.css">
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- HEADER -->
     <header class="header">
-        <div class="logo">RED</div>
-
-        <div class="search-container">
-            <input type="text" placeholder="Buscar productos...">
-            <button class="search-btn">🔍</button>
-        </div>
-
-        <div class="user-section">
-            <div class="cart-icon">🛒<span class="badge">3</span></div>
-            <div class="auth-links">
-                ¡Bienvenido! <a href="#">Iniciar sesión</a> | <a href="#">Registrarse</a>
-            </div>
-        </div>
+        <h1 class="logo">RED</h1>
+        <button class="user-btn">Juan</button>
     </header>
 
-    <main class="container">
+    <main class="contenedor">
 
-        <h1>Tu Carrito</h1>
+        <h2 class="titulo">Carrito de compras</h2>
 
-        <div class="cart-wrapper">
+        <p id="msg-vacio" class="mensaje-vacio" style="display:none;">No hay productos en el carrito</p>
 
-            <!-- Productos -->
-            <div class="cart-items">
+        <!-- LISTA DE PRODUCTOS -->
+        <div class="carrito-lista" id="carrito-lista">
 
-                <div class="item">
-                    <img src="https://via.placeholder.com/90" alt="product">
-                    <div class="item-info">
-                        <h3>Camisa Roja Casual</h3>
-                        <p>Talla: M, Color: Rojo, Marca: Zara</p>
+            <!-- PRODUCTO 1 -->
+            <div class="item" data-id="1">
+                <img src="https://via.placeholder.com/100" alt="producto">
+
+                <div class="item-info">
+                    <h3>Camiseta Oversize RED</h3>
+                    <p>Talla: L — Color: Negro</p>
+
+                    <div class="quantity-box">
+                        <button class="qty-btn minus">-</button>
+                        <input class="qty" type="number" value="1" min="1">
+                        <button class="qty-btn plus">+</button>
                     </div>
-
-                    <div class="quantity">
-                        <input type="number" min="1" value="1">
-                    </div>
-
-                    <div class="price">$120.00<br><span>$120 c/u</span></div>
-
-                    <button class="favorite">❤️</button>
-                    <button class="remove-btn">Eliminar</button>
                 </div>
 
-                <div class="item">
-                    <img src="https://via.placeholder.com/90" alt="product">
-                    <div class="item-info">
-                        <h3>Pantalón Negro Elegante</h3>
-                        <p>Talla: 32, Color: Negro, Marca: Levi’s</p>
-                    </div>
-
-                    <div class="quantity">
-                        <input type="number" min="1" value="1">
-                    </div>
-
-                    <div class="price">$89.99<br><span>$89.99 c/u</span></div>
-
-                    <button class="favorite">❤️</button>
-                    <button class="remove-btn">Eliminar</button>
+                <div class="price" data-price="95000">
+                    $95.000
+                    <span class="subtotal">Subtotal: $95.000</span>
                 </div>
 
-                <div class="item">
-                    <img src="https://via.placeholder.com/90" alt="product">
-                    <div class="item-info">
-                        <h3>Reloj Deportivo</h3>
-                        <p>Color: Negro, Marca: Casio</p>
-                    </div>
-
-                    <div class="quantity">
-                        <input type="number" min="1" value="1">
-                    </div>
-
-                    <div class="price">$150.00<br><span>$150 c/u</span></div>
-
-                    <button class="favorite">❤️</button>
-                    <button class="remove-btn">Eliminar</button>
-                </div>
-
-                <div class="cart-actions">
-                    <button class="continue">← Seguir comprando</button>
-                </div>
+                <button class="remove-btn">✖</button>
             </div>
+
+            <!-- PRODUCTO 2 -->
+            <div class="item" data-id="2">
+                <img src="https://via.placeholder.com/100" alt="producto">
+
+                <div class="item-info">
+                    <h3>Chaqueta Deportiva RED</h3>
+                    <p>Talla: XL — Color: Rojo</p>
+
+                    <div class="quantity-box">
+                        <button class="qty-btn minus">-</button>
+                        <input class="qty" type="number" value="2" min="1">
+                        <button class="qty-btn plus">+</button>
+                    </div>
+                </div>
+
+                <div class="price" data-price="150000">
+                    $150.000
+                    <span class="subtotal">Subtotal: $300.000</span>
+                </div>
+
+                <button class="remove-btn">✖</button>
+            </div>
+
         </div>
 
-        <!-- Sección de pago -->
-        <div class="summary">
-            <div class="totals-box">
-                <div class="line">
-                    <span>Subtotal:</span>
-                    <span>USD 359.99</span>
-                </div>
-                <div class="line">
-                    <span>Descuento:</span>
-                    <span>USD 20.00</span>
-                </div>
+        <!-- BOTÓN BORRAR TODO -->
+        <button id="btn-borrar-todo" class="btn-borrar-todo">Borrar todos los productos</button>
 
-                <div class="total">
-                    <span>Total:</span>
-                    <span class="total-value">$339.99</span>
-                </div>
-
-                <div class="payment-icons">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="">
-                </div>
-
-                <button class="purchase-btn">Pagar Ahora →</button>
-            </div>
-        </div>
+        <!-- BOTÓN REGRESAR -->
+        <button class="btn-regresar" onclick="volverAlEditor()">⬅ Regresar al editor de ropa</button>
 
     </main>
 
-    <script>
-        // Eliminar producto
-        const removeButtons = document.querySelectorAll(".remove-btn");
-        removeButtons.forEach(btn => {
-            btn.addEventListener("click", () => {
-                btn.closest(".item").remove();
-            });
-        });
-
-        // Validar cantidad
-        const quantities = document.querySelectorAll(".quantity input");
-        quantities.forEach(input => {
-            input.addEventListener("input", () => {
-                if (input.value < 1) input.value = 1;
-            });
-        });
-    </script>
-
+    <script src="javascript/backend.js"></script>
 </body>
 </html>
