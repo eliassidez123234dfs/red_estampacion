@@ -53,3 +53,32 @@
    - Save your design as an image file.
    - Share your design on social media or with friends.
 
+
+iniciar servidor estatico y no tener que usar npm run dev
+
+✅ 1. Instalar dependencias (solo la primera vez)
+npm install
+
+✅ 2. Hacer el build en ese computador
+npm run build
+
+
+Esto vuelve a generar la carpeta:
+
+dist/
+
+✅ 3. Instalar un servidor estático (una sola vez)
+npm install -g serve
+
+✅ 4. Servir la carpeta dist
+serve dist
+
+Y el navegador te mostrará algo como:
+
+http://localhost:3000
+
+
+Abres esa URL y tu editor 3D funciona sin npm run dev.
+
+
+en caso de pantalla en blanco se debe verificar el localhost que no este ocupado
