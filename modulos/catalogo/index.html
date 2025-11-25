@@ -52,11 +52,10 @@
                         <label class="filter-label">Buscar</label>
                         <div class="search-bar">
                             <span class="search-icon">🔍</span>
-                            <input 
-                                type="text" 
-                                class="search-input" 
-                                id="buscarProducto" 
-                                placeholder="Buscar productos...">
+                            <input type="text"
+                                   class="search-input"
+                                   id="buscarProducto"
+                                   placeholder="Buscar productos...">
                         </div>
                     </div>
 
@@ -72,19 +71,17 @@
                     <div class="filter-section">
                         <label class="filter-label">Precio</label>
                         <div class="price-inputs">
-                            <input 
-                                type="number" 
-                                class="price-input" 
-                                id="precioMin" 
-                                placeholder="Mín"
-                                min="0">
+                            <input type="number"
+                                   class="price-input"
+                                   id="precioMin"
+                                   placeholder="Mín"
+                                   min="0">
                             <span>-</span>
-                            <input 
-                                type="number" 
-                                class="price-input" 
-                                id="precioMax" 
-                                placeholder="Máx"
-                                min="0">
+                            <input type="number"
+                                   class="price-input"
+                                   id="precioMax"
+                                   placeholder="Máx"
+                                   min="0">
                         </div>
                         <button class="btn-aplicar-precio" id="aplicarPrecio">Aplicar</button>
                     </div>
@@ -162,9 +159,43 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer">
+    <footer>
         <div class="footer-content">
-            <p>&copy; 2025 RED Estampación. Todos los derechos reservados.</p>
+            <div class="footer-section">
+                <h3>RED</h3>
+                <p>Tu tienda de confianza desde 2010. Calidad y servicio garantizados.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Categorías</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Soporte</h3>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Política de Devoluciones</a></li>
+                    <li><a href="#">Centro de Ayuda</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📧 info@red.com</li>
+                    <li>📱 +57 300 123 4567</li>
+                    <li>📍 Calle Principal #123</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 RED. Todos los derechos reservados.
         </div>
     </footer>
 
@@ -174,7 +205,7 @@
         // Reiniciar datos mock (solo para desarrollo)
         // Descomenta la línea siguiente si necesitas reiniciar los datos
         // localStorage.clear(); MockData.init(); location.reload();
-        
+
         // Verificar si hay productos
         window.addEventListener('DOMContentLoaded', () => {
             const productos = localStorage.getItem('productos_red');
