@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin — Pedidos | RED</title>
+  <link rel="stylesheet" href="../../static/css/carritoadmin.css" />
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">RED</h1>
+    <div class="header-right">
+      <button class="user-btn">Administrador</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <h2 class="page-title">Panel de Pedidos — Administrador</h2>
+
+    <div class="content">
+      <!-- Lista de pedidos (panel izquierdo) -->
+      <section class="panel list-panel">
+        <div class="panel-header">
+          <h3>Pedidos recientes</h3>
+          <div class="filters">
+            <label>
+              Ver:
+              <select id="filter-status">
+                <option value="all">Todos</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Producción">Producción</option>
+                <option value="Enviado">Enviado</option>
+                <option value="Cancelado">Cancelado</option>
+                <option value="Pagado">Pagado</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <table class="orders-table" id="orders-table" aria-live="polite">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Cliente</th>
+              <th>Fecha</th>
+              <th>Total</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <p id="no-orders" class="empty" style="display:none;">No hay pedidos para mostrar.</p>
+      </section>
+
+      <!-- Detalle (panel derecho) -->
+      <aside class="panel detail-panel" id="detail-panel">
+        <div id="detail-empty" class="detail-empty">
+          <p>Selecciona un pedido para ver su detalle</p>
+        </div>
+
+        <div id="detail-content" class="detail-content" style="display:none;">
+          <div class="detail-header">
+            <h3>Pedido <span id="detail-id"></span></h3>
+            <button id="btn-back" class="small-btn">← Volver</button>
+          </div>
+
+          <div class="order-info">
+            <p><strong>Cliente:</strong> <span id="detail-client"></span></p>
+            <p><strong>Fecha:</strong> <span id="detail-date"></span></p>
+            <p><strong>Estado:</strong>
+              <select id="detail-status"></select>
+              <span id="status-note" class="status-note"></span>
+            </p>
+          </div>
+
+          <div class="cart-detail">
+            <h4>Carrito</h4>
+            <div id="cart-items" class="cart-items"></div>
+          </div>
+
+          <div class="detail-footer">
+            <p class="detail-total">Total: <span id="detail-total">$0</span></p>
+            <div class="detail-actions">
+              <button id="save-changes" class="primary-btn">Guardar cambios</button>
+              <button id="cancel-changes" class="small-btn">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="../../static/js/adminCarrito.js"></script>
+</body>
+</html>

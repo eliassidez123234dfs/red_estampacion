@@ -1,0 +1,22 @@
+[33m2431e99[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32melias[m[33m)[m Correcciones django
+[33maebf9d3[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge pull request #9 from eliassidez123234dfs/elias
+[33m39affb5[m[33m ([m[1;31morigin/elias[m[33m)[m Merge branch 'elias' of https://github.com/eliassidez123234dfs/red_estampacion into elias Merge de cambios remotos
+[33m6cc8903[m Agrego dashboard admin, registro, y login verificado
+[33mcc6109f[m Merge pull request #8 from eliassidez123234dfs/tomas
+[33ma22c453[m v1 editor 3d
+[33m005db32[m Merge pull request #7 from eliassidez123234dfs/tomas
+[33m97bfacd[m Merge pull request #6 from eliassidez123234dfs/main
+[33md9d64f7[m Merge pull request #5 from eliassidez123234dfs/manrique
+[33m56bb3d1[m Actualización del carrito: cálculo de totales, actualización de cantidades, eliminación de productos y vaciado del carrito
+[33ma3106b6[m Hice el carrito, se debe de modificar y hacerlo responsivo
+[33m18bc21e[m Merge pull request #4 from eliassidez123234dfs/elias
+[33m4e55a71[m Merge pull request #3 from eliassidez123234dfs/tomas
+[33m8102805[m[33m ([m[1;31morigin/jose[m[33m)[m Merge pull request #2 from eliassidez123234dfs/tomas
+[33m9f9de70[m[33m ([m[1;31morigin/tomas[m[33m)[m muestra de la zona de administracion
+[33me52dcf0[m Merge pull request #1 from eliassidez123234dfs/elias
+[33mc9aa5fd[m cambio en la url del registrar
+[33mb063694[m[33m ([m[1;32mmain[m[33m)[m Ajuste de la parte inicial, falta agregar las imagenes moviles en el css
+[33md55d1a0[m Le agregre un poco mas a el index inicial
+[33m2d29977[m Merge branch 'main' of https://github.com/eliassidez123234dfs/red_estampacion
+[33m17f3db1[m Estructura inicial de nuestro proyecto
+[33m8f66486[m Initial commit
