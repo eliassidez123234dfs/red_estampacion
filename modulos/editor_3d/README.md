@@ -73,10 +73,12 @@ npm install -g serve
 ✅ 4. Servir la carpeta dist
 serve dist
 
-
 Y el navegador te mostrará algo como:
 
 http://localhost:3000
 
 
 Abres esa URL y tu editor 3D funciona sin npm run dev.
+
+
+en caso de pantalla en blanco se debe verificar el localhost que no este ocupado
