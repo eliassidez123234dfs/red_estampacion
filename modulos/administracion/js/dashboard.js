@@ -1,4 +1,26 @@
 ﻿
+// Verificar si hay un usuario autenticado
+document.addEventListener('DOMContentLoaded', function () {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (!currentUser || currentUser.rol !== 'Administrador') {
+        // Si no hay usuario o no es administrador, redirigir a la página de login
+        localStorage.removeItem('currentUser');
+        window.location.href = '../usuarios/index.html';
+        return;
+    }
+
+    // Actualizar la información del usuario en la interfaz
+    document.getElementById('userName').textContent = currentUser.nombre;
+    document.getElementById('welcomeName').textContent = currentUser.nombre;
+    document.getElementById('userInitial').textContent = currentUser.nombre.charAt(0);
+
+    // Configurar evento de cierre de sesión
+    document.getElementById('logoutBtn').addEventListener('click', function () {
+        localStorage.removeItem('currentUser');
+        window.location.href = '../usuarios/index.html';
+    });
+});
 
 
 // Eventos para los botones de acciones (simulación)
