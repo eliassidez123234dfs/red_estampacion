@@ -2,7 +2,7 @@
 
 Plataforma web para gestión y venta de productos personalizables con estampación 3D.
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 red_estampacion/
@@ -30,33 +30,33 @@ red_estampacion/
         └── js/productos.js
 ```
 
-## 🚀 Funcionalidades Implementadas
+## Funcionalidades Implementadas
 
 ### 1. Gestión de Productos (Admin)
-- ✅ Crear, editar, eliminar productos
-- ✅ Gestionar variantes (tallas, colores, stock, precios)
-- ✅ Subir y gestionar imágenes
-- ✅ Aprobar/desaprobar productos
-- ✅ Filtros avanzados (búsqueda, precio, estado)
-- ✅ Validación de formularios
+- Crear, editar, eliminar productos
+- Gestionar variantes (tallas, colores, stock, precios)
+- Subir y gestionar imágenes
+- Aprobar/desaprobar productos
+- Filtros avanzados (búsqueda, precio, estado)
+- Validación de formularios
 
 ### 2. Catálogo de Productos (Cliente)
-- ✅ Grid responsive de productos (12 por página)
-- ✅ Filtros dinámicos (categorías, precio, colores, tallas, stock)
-- ✅ Búsqueda en tiempo real
-- ✅ Ordenamiento (fecha, nombre, precio)
-- ✅ Paginación con navegación (← 1 2 3 ... →)
-- ✅ Navegación a detalle del producto
+- Grid responsive de productos (12 por página)
+- Filtros dinámicos (categorías, precio, colores, tallas, stock)
+- Búsqueda en tiempo real
+- Ordenamiento (fecha, nombre, precio)
+- Paginación con navegación (← 1 2 3 ... →)
+- Navegación a detalle del producto
 
 ### 3. Detalle de Producto (Cliente)
-- ✅ Galería de imágenes con zoom
-- ✅ Selección de variantes (talla + color)
-- ✅ Actualización dinámica de precio y stock
-- ✅ Control de cantidad con validación
-- ✅ Agregar al carrito
-- ✅ Productos relacionados (misma categoría)
+- Galería de imágenes con zoom
+- Selección de variantes (talla + color)
+- Actualización dinámica de precio y stock
+- Control de cantidad con validación
+- Agregar al carrito
+- Productos relacionados (misma categoría)
 
-## 🗂️ Datos Mock
+## Datos Mock
 
 ### Productos
 - **Total:** 20 productos de ejemplo
@@ -74,7 +74,7 @@ red_estampacion/
 - **Cantidad:** 7 imágenes reales de productos
 - **Uso:** Rotación entre los 20 productos (3 imágenes por producto)
 
-## 🎨 Diseño
+## Diseño
 
 - **Color primario:** #DC143C (Crimson Red)
 - **Tipografía:** Arial, sans-serif
@@ -82,7 +82,7 @@ red_estampacion/
 - **Framework:** Vanilla JavaScript (ES6+)
 - **Almacenamiento:** localStorage
 
-## 💾 LocalStorage
+## LocalStorage
 
 El sistema utiliza localStorage para persistir:
 - `productos_red` - Lista de productos
@@ -91,7 +91,7 @@ El sistema utiliza localStorage para persistir:
 - `categorias_red` - Categorías de productos
 - `carrito_red` - Items en el carrito de compras
 
-## 🔄 Inicialización
+## Inicialización
 
 Al cargar cualquier módulo por primera vez, el sistema detecta si localStorage está vacío y automáticamente:
 1. Crea 5 categorías
@@ -100,7 +100,7 @@ Al cargar cualquier módulo por primera vez, el sistema detecta si localStorage 
 4. Asocia imágenes a productos
 5. Inicializa carrito vacío
 
-## 🌐 Navegación
+## Navegación
 
 ```
 Inicio (index.html)
@@ -109,7 +109,7 @@ Inicio (index.html)
 └── Admin → Gestión de Productos → CRUD completo
 ```
 
-## 📝 Notas Técnicas
+## Notas Técnicas
 
 - **Sin backend:** Todo funciona en cliente con localStorage
 - **Imágenes:** Las 7 fotos se rotan entre los 20 productos
